@@ -30,9 +30,4 @@ class Quadrilateral extends Figure {
     public Point centroid() {
         return null;
     }
-
-    @Override
-    public boolean isTheSame(Figure figure) {
-        return false;
-    }
 }

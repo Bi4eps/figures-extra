@@ -25,9 +25,4 @@ class Triangle extends Figure {
     public Point centroid() {
         return null;
     }
-
-    @Override
-    public boolean isTheSame(Figure figure) {
-        return false;
-    }
 }

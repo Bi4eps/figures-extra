@@ -33,8 +33,14 @@ class Circle extends Figure {
         return null;
     }
 
-    @Override
+    /*@Override
     public boolean isTheSame(Figure figure) {
-        return false;
-    }
+        boolean namesIsSame = figure.getClass().getSimpleName().equals(this.getClass().getSimpleName());
+
+        *//*if (namesIsSame) {
+            return true;
+        } else return false;*//*
+
+        return namesIsSame &&
+    }*/
 }

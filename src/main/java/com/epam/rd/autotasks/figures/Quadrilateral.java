@@ -9,6 +9,9 @@ class Quadrilateral extends Figure {
         points[3] = point4;
 
         checkPoints();
+        //new Triangle(point1, point2, this.centroid()).checkPoints();
+        //new Triangle(point3, point4, this.centroid()).checkPoints();
+        checkConvexity();
     }
 
     @Override
@@ -26,5 +29,25 @@ class Quadrilateral extends Figure {
         double area = 0.5 * Math.abs((x1 * y2 + x2 * y3 + x3 * y4 + x4 * y1)
                 - (y1 * x2 + y2 * x3 + y3 * x4 + y4 * x1));
         return area;
+    }
+
+    private void checkConvexity() {
+        IllegalArgumentException exception = new IllegalArgumentException();
+
+        int n = points.length;
+        int sign = 0;
+
+        for (int i = 0; i < n; i++) {
+            int dx1 = (int) (points[(i + 1) % n].getX() - points[i].getX());
+            int dy1 = (int) (points[(i + 1) % n].getY() - points[i].getY());
+            int dx2 = (int) (points[(i + 2) % n].getX() - points[(i + 1) % n].getX());
+            int dy2 = (int) (points[(i + 2) % n].getY() - points[(i + 1) % n].getY());
+
+            int crossProduct = dx1 * dy2 - dx2 * dy1;
+
+            if (sign == 0) {
+                sign = Integer.signum(crossProduct);
+            } else if (sign != Integer.signum(crossProduct)) throw exception;
+        }
     }
 }

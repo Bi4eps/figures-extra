@@ -33,7 +33,10 @@ abstract class Figure{
             sumY += el.getY();
         }
 
-        return new Point(sumX / points.length, sumY / points.length);
+        System.out.println(pointsToString());//
+        System.out.println(sumX / points.length + " " + sumY / points.length);//
+
+        return new Point(sumX / 3, sumY / 3);
     }
     public boolean isTheSame(Figure figure) {
         boolean namesIsSame = figure.getClass().getSimpleName().equals(this.getClass().getSimpleName());

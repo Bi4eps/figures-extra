@@ -6,6 +6,8 @@ class Triangle extends Figure {
         points[0] = point1;
         points[1] = point2;
         points[2] = point3;
+
+        checkPoints();
     }
 
     @Override

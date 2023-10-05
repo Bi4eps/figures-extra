@@ -44,8 +44,6 @@ abstract class Figure{
     }
 
     private boolean isPointsTheSame(Figure figure) {
-        //System.out.println(pointsToString());
-
         double [] [] ownPoints = new double[points.length] [2];
         for (int i = 0; i < points.length; i++) {
             ownPoints[i] [0] = points[i].getX();
@@ -53,7 +51,6 @@ abstract class Figure{
         }
         ownPoints = insertionSort(ownPoints);
 
-        System.out.println(figure.pointsToString());
         double [] [] otherPoints = new double[points.length] [2];
         for (int i = 0; i < points.length; i++) {
             otherPoints[i] [0] = figure.points[i].getX();
@@ -62,23 +59,12 @@ abstract class Figure{
 
         otherPoints = insertionSort(otherPoints);
 
-        for (int i = 0; i < otherPoints.length; i++) {//
-            for (int j = 0; j < otherPoints[0].length; j++) {
-                System.out.print(otherPoints[i] [j] + "    ");
-            }
-            System.out.println();
-        } //
-        System.out.println();
-
-
-
         return arrsSame(ownPoints, otherPoints);
     }
 
     private boolean arrsSame(double[] [] arr1, double[] [] arr2) {
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr1[i].length; j++) {
-                //System.out.print(arr1[i][j] + " == " + arr2[i][j] + "\n");
                 if ((float) arr1[i][j] != (float) arr2[i][j]) {
                     return false;
                 }
@@ -89,15 +75,6 @@ abstract class Figure{
     }
 
     public static double[] [] insertionSort(double[] [] a) {
-        /*for (int i = 0; i < a.length; i++) {//
-            for (int j = 0; j < a[0].length; j++) {
-                System.out.print(a[i] [j] + "    ");
-            }
-            System.out.println();
-        } //
-        System.out.println();*/
-
-
         for (int i = 1; i < a.length; i++) {
             double value = a[i] [0];
             double y = a[i] [1];
@@ -111,6 +88,19 @@ abstract class Figure{
             a[j + 1][1] = y;
         }
         return a;
+    }
+
+    protected void checkPoints() {
+        IllegalArgumentException exception = new IllegalArgumentException();
+
+        for (Point el : points) {
+            if (el == null) throw exception;
+        }
+
+        if (points[0].getX() == points[1].getX() && points[0].getX() == points[2].getX()) throw exception;
+        if (points[0].getY() == points[1].getY() && points[0].getY() == points[2].getY()) throw exception;
+        if (points[0].getK() == points[1].getK() && points[0].getK() == points[2].getK()) throw exception;
+
     }
 }
 

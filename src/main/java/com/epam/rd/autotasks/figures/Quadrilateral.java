@@ -7,6 +7,8 @@ class Quadrilateral extends Figure {
         points[1] = point2;
         points[2] = point3;
         points[3] = point4;
+
+        checkPoints();
     }
 
     @Override

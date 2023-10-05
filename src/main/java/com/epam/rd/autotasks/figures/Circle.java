@@ -12,7 +12,7 @@ class Circle extends Figure {
     @Override
     public double area() {
         // Formula for the area of a circle: π * r^2
-        return Math.PI * Math.pow(radius, 2);
+        return Math.PI * Math.pow((float) radius, 2);
     }
 
     @Override
@@ -33,14 +33,12 @@ class Circle extends Figure {
         return points[0];
     }
 
-    /*@Override
+    @Override
     public boolean isTheSame(Figure figure) {
         boolean namesIsSame = figure.getClass().getSimpleName().equals(this.getClass().getSimpleName());
+        boolean centerIsSame = (float) figure.points[0].getX() == (float) points[0].getX() &&
+                (float) figure.points[0].getY() == (float) points[0].getY();
 
-        *//*if (namesIsSame) {
-            return true;
-        } else return false;*//*
-
-        return namesIsSame &&
-    }*/
+        return namesIsSame && centerIsSame && area() == figure.area();
+    }
 }

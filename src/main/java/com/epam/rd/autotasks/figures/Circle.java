@@ -4,9 +4,16 @@ class Circle extends Figure {
     private final double radius;
 
     public Circle(Point center, double radius) {
-        this.radius = radius;
-        points = new Point[1];
-        points[0] = center;
+        IllegalArgumentException exception = new IllegalArgumentException();
+
+        if (radius <= 0) throw exception;
+        else this.radius = radius;
+
+        if (center == null) throw exception;
+        else {
+            points = new Point[1];
+            points[0] = center;
+        }
     }
 
     @Override

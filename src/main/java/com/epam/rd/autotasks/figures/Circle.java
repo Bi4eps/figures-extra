@@ -30,7 +30,7 @@ class Circle extends Figure {
 
     @Override
     public Point centroid() {
-        return null;
+        return points[0];
     }
 
     /*@Override

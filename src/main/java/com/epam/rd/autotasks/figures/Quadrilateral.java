@@ -25,9 +25,4 @@ class Quadrilateral extends Figure {
                 - (y1 * x2 + y2 * x3 + y3 * x4 + y4 * x1));
         return area;
     }
-
-    @Override
-    public Point centroid() {
-        return null;
-    }
 }

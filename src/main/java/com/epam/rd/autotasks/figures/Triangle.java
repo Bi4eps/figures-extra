@@ -20,9 +20,4 @@ class Triangle extends Figure {
         double area = Math.abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
         return area;
     }
-
-    @Override
-    public Point centroid() {
-        return null;
-    }
 }

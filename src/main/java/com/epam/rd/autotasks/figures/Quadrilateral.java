@@ -50,4 +50,15 @@ class Quadrilateral extends Figure {
             } else if (sign != Integer.signum(crossProduct)) throw exception;
         }
     }
+
+    @Override
+    public Point centroid() {
+        Point center1 = new Triangle(points[0], points[1], points[2]).centroid();
+        Point center2 = new Triangle(points[0], points[2], points[3]).centroid();
+        Point center3 = new Triangle(points[0], points[3], points[1]).centroid();
+        Point center4 = new Triangle(points[1], points[3], points[2]).centroid();
+
+        return new Segment(center1,center2)
+                .intersection(new Segment(center3,center4));
+    }
 }

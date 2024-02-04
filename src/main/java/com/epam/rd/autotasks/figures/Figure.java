@@ -33,9 +33,6 @@ abstract class Figure{
             sumY += el.getY();
         }
 
-        System.out.println(pointsToString());//
-        System.out.println(sumX / points.length + " " + sumY / points.length);//
-
         return new Point(sumX / 3, sumY / 3);
     }
     public boolean isTheSame(Figure figure) {
@@ -103,7 +100,6 @@ abstract class Figure{
         if (points[0].getX() == points[1].getX() && points[0].getX() == points[2].getX()) throw exception;
         if (points[0].getY() == points[1].getY() && points[0].getY() == points[2].getY()) throw exception;
         if (points[0].getK() == points[1].getK() && points[0].getK() == points[2].getK()) throw exception;
-
     }
 }
 

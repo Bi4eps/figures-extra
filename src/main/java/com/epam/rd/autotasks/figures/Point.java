@@ -17,6 +17,8 @@ class Point {
         return y;
     }
 
-    public double getK() { return x / y; }
+    public double getK() {
+        return x / y;
+    }
 
 }

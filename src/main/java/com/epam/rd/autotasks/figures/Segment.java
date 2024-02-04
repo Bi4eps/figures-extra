@@ -26,7 +26,8 @@ public class Segment {
     Point intersection(Segment another) {
         double k1 = (end.getY() - start.getY()) / (end.getX() - start.getX());
         double k2 = (another.end.getY() - another.start.getY()) / (another.end.getX() - another.start.getX());
-        if (k1 == k2) return null;
+        if (k1 == k2)
+            return null;
 
         double b1 = (start.getY() * end.getX() - end.getY() * start.getX()) / (end.getX() - start.getX());
         double b2 = (another.start.getY() * another.end.getX() - another.end.getY() * another.start.getX()) /

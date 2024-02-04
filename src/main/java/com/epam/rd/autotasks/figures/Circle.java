@@ -18,7 +18,6 @@ class Circle extends Figure {
 
     @Override
     public double area() {
-        // Formula for the area of a circle: π * r^2
         return Math.PI * Math.pow((float) radius, 2);
     }
 

@@ -9,14 +9,11 @@ class Quadrilateral extends Figure {
         points[3] = point4;
 
         checkPoints();
-        //new Triangle(point1, point2, this.centroid()).checkPoints();
-        //new Triangle(point3, point4, this.centroid()).checkPoints();
         checkConvexity();
     }
 
     @Override
     public double area() {
-        // Formula for the area of a general quadrilateral (Shoelace formula)
         double x1 = points[0].getX();
         double y1 = points[0].getY();
         double x2 = points[1].getX();
@@ -45,9 +42,10 @@ class Quadrilateral extends Figure {
 
             int crossProduct = dx1 * dy2 - dx2 * dy1;
 
-            if (sign == 0) {
+            if (sign == 0)
                 sign = Integer.signum(crossProduct);
-            } else if (sign != Integer.signum(crossProduct)) throw exception;
+            else if (sign != Integer.signum(crossProduct))
+                throw exception;
         }
     }
 
@@ -58,7 +56,6 @@ class Quadrilateral extends Figure {
         Point center3 = new Triangle(points[0], points[3], points[1]).centroid();
         Point center4 = new Triangle(points[1], points[3], points[2]).centroid();
 
-        return new Segment(center1,center2)
-                .intersection(new Segment(center3,center4));
+        return new Segment(center1,center2).intersection(new Segment(center3,center4));
     }
 }
